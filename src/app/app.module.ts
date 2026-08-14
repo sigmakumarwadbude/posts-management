@@ -5,17 +5,20 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent}
+      { path: '', component: HomeComponent},
+      { path: 'posts', component: PostsComponent}
     ])
   ],
   providers: [],
