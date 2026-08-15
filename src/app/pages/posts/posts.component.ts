@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { POSTS } from 'src/app/data/posts';
 import { Post } from 'src/app/model/post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -11,7 +11,7 @@ export class PostsComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  posts = POSTS;
+  posts: Post[] = [];
   filteredPosts: Post[] = [];
   private _listFilter = "";
 
@@ -25,10 +25,11 @@ export class PostsComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.listFilter = "ang";
+    this.posts = this.postService.getPosts();
+    this.listFilter = "";
   }
 
   perfomFilter(filterBy: string) {
