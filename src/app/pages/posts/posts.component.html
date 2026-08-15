@@ -46,7 +46,13 @@
                             </span>
                         </td>
                         <td>{{post.publishedAt}}</td>
-                        <td>{{post.likes | likes}}</td>
+                        <td>
+                            <app-post-likes
+                                [likes]="post.likes"
+                                [postId]="post.id"
+                                (liked)="onClickLikes($event)">
+                            </app-post-likes>
+                        </td>
                     </tr>
                 </tbody>
             </table>

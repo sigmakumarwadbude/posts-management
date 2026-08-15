@@ -39,4 +39,7 @@ export class PostsComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  onClickLikes(postId: number) {
+    console.log(postId);
+  }
 }

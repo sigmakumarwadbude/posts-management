@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { FormsModule } from '@angular/forms';
 import { LikesPipe } from './shared/pipes/likes.pipe';
+import { PostLikesComponent } from './pages/posts/components/post-likes.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LikesPipe } from './shared/pipes/likes.pipe';
     LayoutComponent,
     HomeComponent,
     PostsComponent,
+    PostLikesComponent,
     LikesPipe
   ],
   imports: [
