@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { FormsModule } from '@angular/forms';
+import { LikesPipe } from './shared/pipes/likes.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    LikesPipe
   ],
   imports: [
     BrowserModule,

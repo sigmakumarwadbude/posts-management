@@ -29,6 +29,7 @@
                     </th>
                     <th>Name</th>
                     <th>Author</th>
+                    <th>Category</th>
                     <th>Published</th>
                     <th>5 Star Rating</th>
                 </tr>
@@ -44,8 +45,9 @@
                     </td>
                     <td>{{post.title}}</td>
                     <td>{{post.author}}</td>
+                    <th>{{post.category}}</th>
                     <td>{{post.publishedAt}}</td>
-                    <td>{{post.rating}}</td>
+                    <td>{{post.likes | likes}}</td>
                 </tr>
             </tbody>
         </table>

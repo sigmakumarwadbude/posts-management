@@ -3,7 +3,8 @@ export interface Post {
   readonly title: string;
   readonly author: string;
   readonly publishedAt: string;
-  readonly rating: number;
+  readonly likes: number;
+  readonly category: string[];
   readonly imageUrl?: string;
 }
 export type CreatePost = Omit<Post, 'id'>;

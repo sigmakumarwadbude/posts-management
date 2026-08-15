@@ -7,31 +7,35 @@ export const POSTS: Post[] = [
     title: 'Angular Fundamentals',
     author: 'John Smith',
     publishedAt: '2026-01-15',
-    rating: 5,
-    imageUrl: 'assets/images/angular-fundamentals.jpg'
+    likes: 500,
+    imageUrl: 'assets/images/angular-fundamentals.jpg',
+    category: ['Angular', 'Frontend']
   },
   {
     id: 2,
     title: 'Learning TypeScript',
     author: 'Jane Doe',
     publishedAt: '2026-02-10',
-    rating: 4,
-    imageUrl: 'assets/images/typescript.jpg'
+    likes: 400000000000,
+    imageUrl: 'assets/images/typescript.jpg',
+    category: ['TypeScript', 'Programming']
   },
   {
     id: 3,
     title: 'RxJS in Angular',
     author: 'David Brown',
     publishedAt: '2026-03-05',
-    rating: 5,
-    imageUrl: 'assets/images/rxjs.jpg'
+    likes: 500000000,
+    imageUrl: 'assets/images/rxjs.jpg',
+    category: ['RxJS', 'Angular', 'Reactive Programming']
   },
   {
-    id: 4,
+    id: 400,
     title: 'Modern Web Development',
     author: 'Sarah Wilson',
     publishedAt: '2026-04-20',
-    rating: 3,
-    imageUrl: 'assets/images/web-development.jpg'
+    likes: 300000,
+    imageUrl: 'assets/images/web-development.jpg',
+    category: ['Web Development', 'Frontend']
   }
 ];
