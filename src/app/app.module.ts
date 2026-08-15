@@ -9,6 +9,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { FormsModule } from '@angular/forms';
 import { LikesPipe } from './shared/pipes/likes.pipe';
 import { PostLikesComponent } from './pages/posts/components/post-likes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PostLikesComponent } from './pages/posts/components/post-likes.componen
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'posts', component: PostsComponent}

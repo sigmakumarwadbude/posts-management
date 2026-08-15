@@ -9,7 +9,7 @@ export const POSTS: Post[] = [
     publishedAt: '2026-01-15',
     likes: 500,
     imageUrl: 'assets/images/angular-fundamentals.jpg',
-    category: ['Angular', 'Frontend']
+    categories: ['Angular', 'Frontend']
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ export const POSTS: Post[] = [
     publishedAt: '2026-02-10',
     likes: 400000000000,
     imageUrl: 'assets/images/typescript.jpg',
-    category: ['TypeScript', 'Programming']
+    categories: ['TypeScript', 'Programming']
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const POSTS: Post[] = [
     publishedAt: '2026-03-05',
     likes: 500000000,
     imageUrl: 'assets/images/rxjs.jpg',
-    category: ['RxJS', 'Angular', 'Reactive Programming']
+    categories: ['RxJS', 'Angular', 'Reactive Programming']
   },
   {
     id: 400,
@@ -36,6 +36,6 @@ export const POSTS: Post[] = [
     publishedAt: '2026-04-20',
     likes: 300000,
     imageUrl: 'assets/images/web-development.jpg',
-    category: ['Web Development', 'Frontend']
+    categories: ['Web Development', 'Frontend']
   }
 ];

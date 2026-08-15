@@ -28,8 +28,13 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.posts = this.postService.getPosts();
-    this.listFilter = "";
+    this.postService.getPosts()
+      .subscribe({
+        next: posts => {
+          this.posts = posts;
+          this.listFilter = "";
+        }
+      })
   }
 
   perfomFilter(filterBy: string) {
