@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-header">
+        {{ pageTitle + ' ' + post?.title}}
+    </div>
+    <div class="card-body">
+        <div class="row" *ngIf="post">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">Name:</div>
+                    <div class="col-md-6">{{post.title}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Author:</div>
+                    <div class="col-md-6">{{post.author}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Category:</div>
+                    <div class="col-md-6">
+                        <span *ngFor="let category of post.categories" class="badge badge-primary mr-1">
+                            {{ category }}
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">Published:</div>
+                    <div class="col-md-6">{{post.publishedAt}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">5 Star Rating:</div>
+                    <div class="col-md-6">
+                        <app-post-likes [likes]="post.likes" [postId]="post.id" (liked)="onClickLikes($event)">
+                        </app-post-likes>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4" *ngIf="post.imageUrl">
+                    <img class="center-block img-responsive" [style.height.px]="150" [style.margin.px]="2"
+                        [src]="post.imageUrl" [title]="post.title">
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="errMessage">
+            {{errMessage | json}}
+        </div>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-secondary" (click)="onBack()">
+            <i class="fa fa-chevron-left"></i> Back
+        </button>
+    </div>
+</div>

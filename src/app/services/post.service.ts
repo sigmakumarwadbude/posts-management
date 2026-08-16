@@ -15,6 +15,11 @@ export class PostService {
             .pipe(catchError(this.handleError))
     }
 
+    getPostById(id: number) {
+        return this.http.get<Post>(`${this.postUrl}/${id}`)
+            .pipe(catchError(this.handleError))
+    }
+
     handleError(err: HttpErrorResponse) {
         const message = err.error instanceof ErrorEvent ? err.error.message : err.message;
         return throwError(() => message);

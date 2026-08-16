@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { LikesPipe } from './shared/pipes/likes.pipe';
 import { PostLikesComponent } from './pages/posts/components/post-likes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostDetailComponent } from './pages/posts/post-detail/post-detail.component';
+import { PostDetailGuard } from './pages/posts/post-detail.guard';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,22 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     PostsComponent,
     PostLikesComponent,
-    LikesPipe
+    LikesPipe,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent},
-      { path: 'posts', component: PostsComponent}
+      
+      { path: 'posts', component: PostsComponent},
+      { path: 'posts/:id',
+        canActivate: [ PostDetailGuard ],
+         component: PostDetailComponent},
+      { path: 'welcome', component: HomeComponent},
+      { path: '', redirectTo: 'welcome', pathMatch: "full"},
+      {path: '**', redirectTo: 'welcome', pathMatch: "full"}
     ])
   ],
   providers: [],
