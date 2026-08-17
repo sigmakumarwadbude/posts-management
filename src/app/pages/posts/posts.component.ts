@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/model/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -6,12 +7,14 @@ import { PostService } from 'src/app/services/post.service';
   selector: 'app-posts',
   templateUrl: './posts.component.html',
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnDestroy {
   pageTitle = "Post List";
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
   posts: Post[] = [];
+  err = ''
+  sub!: Subscription
   filteredPosts: Post[] = [];
   private _listFilter = "";
 
@@ -28,8 +31,14 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.posts = this.postService.getPosts();
-    this.listFilter = "";
+    this.sub = this.postService.getPosts()
+      .subscribe({
+        next: posts => {
+          this.posts = posts;
+          this.listFilter = "";
+        },
+        error: errorMessage => this.err = errorMessage
+      })
   }
 
   perfomFilter(filterBy: string) {
@@ -42,5 +51,11 @@ export class PostsComponent implements OnInit {
 
   onClickLikes(postId: number) {
     console.log(postId);
+  }
+
+  ngOnDestroy(): void {
+    if(this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

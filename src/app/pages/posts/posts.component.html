@@ -35,13 +35,18 @@
                 <tbody>
                     <tr *ngFor="let post of filteredPosts">
                         <td>
-                            <img *ngIf="showImage" [src]="post.imageUrl" [title]="post.title"
-                                [style.width.px]="imageWidth" [style.margin.px]="imageMargin" />
+                            <img *ngIf="showImage" 
+                                [src]="post.imageUrl" 
+                                [title]="post.title"
+                                [style.width.px]="imageWidth" 
+                                [style.margin.px]="imageMargin" />
                         </td>
-                        <td>{{post.title}}</td>
+                        <td>
+                            <a [routerLink]="['/posts', post.id]">{{post.title}}</a>
+                        </td>
                         <td>{{post.author}}</td>
                         <td>
-                            <span *ngFor="let category of post.category" class="badge badge-primary mr-1">
+                            <span *ngFor="let category of post.categories" class="badge badge-primary mr-1">
                                 {{ category }}
                             </span>
                         </td>
@@ -56,6 +61,7 @@
                     </tr>
                 </tbody>
             </table>
+            <span *ngIf="err" class="">{{err}}</span>
         </div>
     </div>
 </section>
